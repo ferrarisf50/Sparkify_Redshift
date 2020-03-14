@@ -87,9 +87,9 @@ start_time, hour, day, week, month, year, weekday
 
 ## Getting Started <a name="Started"></a>
 
-1. Open dwh_template.cfg, enter values for the following parameter, then rename the file as dwh.cfg.
+1. Open dwh_template.cfg, enter values for the following parameters, then rename the file as dwh.cfg.
 ```
-[CLUSTER]</br>
+[CLUSTER]
 DB_NAME=<ENTER VALUE>
 DB_USER=<ENTER VALUE>
 DB_PASSWORD=<ENTER VALUE>
@@ -115,6 +115,6 @@ AWS_SECRET_ACCESS_KEY=<ENTER VALUE>
 
 `python create_etl.py`
 
-5. You can write a SQL to test the database, if everything done, finally run delete_cluster.py to delete the Redshift Cluster and the IAM role.
+5. You can write a SQL script to test the database, if everything is done, finally run delete_cluster.py to delete the Redshift Cluster and the IAM role.
 
 `python delete_cluster.py`
