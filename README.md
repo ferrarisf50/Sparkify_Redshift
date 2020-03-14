@@ -22,8 +22,8 @@ This project is to create an ETL pipeline that extracts their data from S3, stag
 
 There are two datasets that reside in S3. Here are the S3 links for each:
 
-Song data: `s3://udacity-dend/song_data`
-Log data: `s3://udacity-dend/log_data`
+Song data: `s3://udacity-dend/song_data`</br>
+Log data: `s3://udacity-dend/log_data`</br>
 Log data json path: `s3://udacity-dend/log_json_path.json`
 
 ### Song Dataset
@@ -88,7 +88,8 @@ start_time, hour, day, week, month, year, weekday
 ## Getting Started <a name="Started"></a>
 
 1. Open dwh_template.cfg, enter values for the following parameter, then rename the file as dwh.cfg.
-`[CLUSTER]
+```
+[CLUSTER]</br>
 DB_NAME=<ENTER VALUE>
 DB_USER=<ENTER VALUE>
 DB_PASSWORD=<ENTER VALUE>
@@ -100,15 +101,20 @@ IAM_ROLE_NAME=<ENTER VALUE>
 [AWS]
 AWS_ACCESS_KEY_ID=<ENTER VALUE>
 AWS_SECRET_ACCESS_KEY=<ENTER VALUE>
-`
+```
+
 2. Run create_cluster.py, to create an IAM role and a Redshift cluster. 
+
 `python create_cluster.py`
 
 3. Run create_tables.py, to create a schema. 
+
 `python create_tables.py`
 
 4. Run etl.py, to load staging tables from S3 to the schema, then insert data by querying the staging tables.
+
 `python create_etl.py`
 
 5. You can write a SQL to test the database, if everything done, finally run delete_cluster.py to delete the Redshift Cluster and the IAM role.
+
 `python delete_cluster.py`
