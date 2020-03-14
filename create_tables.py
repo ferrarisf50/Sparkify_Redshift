@@ -4,12 +4,35 @@ from sql_queries import create_table_queries, drop_table_queries
 import boto3
 
 def drop_tables(cur, conn):
+    '''
+    Delete all previous existing tables from database:
+    
+    INPUT:
+    cur - a cursor to the connected database
+    conn - a connection to the Postgres database
+    
+    OUTPUT:
+    None
+    
+    '''
     for query in drop_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def create_tables(cur, conn):
+    '''
+    Create staging tables, songplays, song, artists, users, and time tables :
+    
+    INPUT:
+    cur - a cursor to the connected database
+    conn - a connection to the Postgres database
+    
+    OUTPUT:
+    None
+    
+    '''
+    
     for query in create_table_queries:
         cur.execute(query)
         conn.commit()

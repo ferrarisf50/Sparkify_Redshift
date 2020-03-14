@@ -4,12 +4,36 @@ from sql_queries import copy_table_queries, insert_table_queries
 import boto3
 
 def load_staging_tables(cur, conn):
+    '''
+    Copy event staging table and song staging table from S3 to the database :
+    
+    INPUT:
+    cur - a cursor to the connected database
+    conn - a connection to the Postgres database
+    
+    OUTPUT:
+    None
+    
+    '''
+    
     for query in copy_table_queries:
         cur.execute(query)
         conn.commit()
         print("Loading %s is done" % query)
 
 def insert_tables(cur, conn):
+    '''
+    Insert data into songplays, song, artists, users, and time tables by querying the staging tables :
+    
+    INPUT:
+    cur - a cursor to the connected database
+    conn - a connection to the Postgres database
+    
+    OUTPUT:
+    None
+    
+    '''
+    
     for query in insert_table_queries:
         cur.execute(query)
         conn.commit()

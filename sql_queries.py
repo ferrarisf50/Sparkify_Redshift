@@ -78,8 +78,8 @@ CREATE TABLE songplays (
         start_time TIMESTAMP NOT NULL,
         user_id VARCHAR NOT NULL,
         level VARCHAR,
-        song_id VARCHAR,
-        artist_id VARCHAR,
+        song_id VARCHAR NOT NULL,
+        artist_id VARCHAR NOT NULL,
         session_id INT,
         location VARCHAR,
         user_agent VARCHAR
@@ -102,7 +102,7 @@ song_table_create = ("""
 CREATE TABLE songs (
         song_id VARCHAR PRIMARY KEY SORTKEY,
         title VARCHAR,
-        artist_id VARCHAR,
+        artist_id VARCHAR NOT NULL,
         year INT,
         duration INT
     )
