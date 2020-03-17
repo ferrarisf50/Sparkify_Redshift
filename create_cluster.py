@@ -139,12 +139,17 @@ def create_cluster(CLUSTER_IDENTIFIER,DB_NAME,DB_USER,DB_PASSWORD,roleArn):
     except Exception as e:
         print(e)
         
+
+    endpoint = myClusterProps['Endpoint']['Address']
+    print("cluster endpoint: {}".format(endpoint))
         
         
 def main():
     
     roleArn = create_iam_role(IAM_ROLE_NAME)
     create_cluster(CLUSTER_IDENTIFIER,DB_NAME,DB_USER,DB_PASSWORD,roleArn)
+    
+    
     
 if __name__ == '__main__':
     main()
